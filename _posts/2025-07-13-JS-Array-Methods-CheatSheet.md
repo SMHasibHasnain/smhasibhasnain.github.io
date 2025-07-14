@@ -17,7 +17,9 @@ Learning JavaScript arrays can be tricky at first because there are so many meth
 
 ## 1. Mutator Methods (Modify Original Array)
 
-These methods **change the original array** directly. When you want to add, remove, or reorder elements and keep those changes, use these. Be careful: they affect the array in place, which can sometimes cause bugs if you’re not expecting it.
+These methods **change the original array** directly. When you want to add, remove, or reorder elements and keep those changes, use these. 
+
+**Be careful:** they affect the array in place, which can sometimes cause bugs if you’re not expecting it.
 
 | Method       | Arguments                     | Description           | Returns       |
 |--------------|------------------------------|-----------------------|---------------|
@@ -174,13 +176,10 @@ Knowing this helps you use them correctly without errors.
 
 ---
 
-## Optional Callback Parameters
+## Remember
 
 Many methods like map, filter, and forEach take a callback function with parameters.
 
 Only the first parameter, typically the current element, is required.
 
 The second and third parameters (index and the whole array) are optional but can be useful if needed.
-
-```js
-array.map((element) => element * 2); // index and array parameters are optional
