@@ -142,21 +142,24 @@ Understanding what each method returns helps you predict how to chain them and a
 
 Grouping methods by what they do helps pick the right one when coding:
 
-- **Add/Remove Elements**: `push`, `pop`, `shift`, `unshift`, `splice`, `toSpliced`
-
-- **Sort/Reverse**: `sort`, `toSorted`, `reverse`, `toReversed`
-
-- **Search**: `includes`, `indexOf`, `lastIndexOf`, `find`, `findIndex`, `findLast`, `findLastIndex`
-
-- **Transform**: `map`, `flatMap`, `from`
-
-- **Filter/Evaluate**: `filter`, `every`, `some`
-
-- **Reduce**: `reduce`, `reduceRight`
-
-- **Access/Iterate**: `at`, `keys`, `values`, `entries`
-
-- **Info/Conversion**: `isArray`, `toString`, `join`, `valueOf`, `prototype`
+| Category                     | Methods                                                                                                     |
+|------------------------------|-------------------------------------------------------------------------------------------------------------|
+| 🛠️ Add / Remove Items          | `push()`<sup style="color:#d32f2f">★★★</sup>, `pop()`<sup style="color:#d32f2f">★★★</sup>, `shift()`<sup style="color:#d32f2f">★★★</sup>, `unshift()`<sup style="color:#d32f2f">★★★</sup>, `splice()`<sup style="color:#d32f2f">★★★</sup>, `toSpliced()`<sup style="color:#fbc02d">★★</sup>                              |
+| 📥 Copy / Extract              | `slice()`<sup style="color:#d32f2f">★★★</sup>, `concat()`<sup style="color:#d32f2f">★★★</sup>, `fill()`<sup style="color:#388e3c">★</sup>, `copyWithin()`<sup style="color:#388e3c">★</sup>, `with()`<sup style="color:#388e3c">★</sup>                                          |
+| 🔄 Transform Elements          | `map()`<sup style="color:#d32f2f">★★★</sup>, `flatMap()`<sup style="color:#d32f2f">★★★</sup>                                                                             |
+| ✅ Filter by Condition         | `filter()`<sup style="color:#d32f2f">★★★</sup>                                                                                          |
+| 🧠 Accumulate to One Value     | `reduce()`<sup style="color:#d32f2f">★★★</sup>, `reduceRight()`<sup style="color:#fbc02d">★★</sup>                                                                         |
+| 🔁 Iterate (Side Effects Only) | `forEach()`<sup style="color:#d32f2f">★★★</sup>                                                                                                |
+| 🔃 Reorder / Sort              | `sort()`<sup style="color:#d32f2f">★★★</sup>, `reverse()`<sup style="color:#d32f2f">★★★</sup>, `toSorted()`<sup style="color:#fbc02d">★★</sup>, `toReversed()`<sup style="color:#fbc02d">★★</sup>                                                |
+| 🧱 Flatten Arrays              | `flat()`<sup style="color:#d32f2f">★★★</sup>, `flatMap()`<sup style="color:#d32f2f">★★★</sup>                                                                             |
+| 🔍 Search by Value             | `indexOf()`<sup style="color:#d32f2f">★★★</sup>, `lastIndexOf()`<sup style="color:#fbc02d">★★</sup>, `includes()`<sup style="color:#d32f2f">★★★</sup>                                                        |
+| 🔎 Search by Condition         | `find()`<sup style="color:#d32f2f">★★★</sup>, `findIndex()`<sup style="color:#d32f2f">★★★</sup>, `findLast()`<sup style="color:#fbc02d">★★</sup>, `findLastIndex()`<sup style="color:#fbc02d">★★</sup>                                           |
+| ✅ Test Conditions (Boolean)   | `some()`<sup style="color:#d32f2f">★★★</sup>, `every()`<sup style="color:#d32f2f">★★★</sup>                                                                               |
+| 📍 Access by Index             | `at()`<sup style="color:#fbc02d">★★</sup>                                                                                                  |
+| 🔑 Keys / Values / Entries     | `keys()`<sup style="color:#388e3c">★</sup>, `values()`<sup style="color:#388e3c">★</sup>, `entries()`<sup style="color:#388e3c">★</sup>                                                                     |
+| 🧾 Convert to String           | `join()`<sup style="color:#fbc02d">★★</sup>, `toString()`<sup style="color:#388e3c">★</sup>                                                                              |
+| 🏗️ Create Arrays (Static)      | `Array.from()`<sup style="color:#fbc02d">★★</sup>, `Array.of()`<sup style="color:#388e3c">★</sup>, `Array.isArray()`<sup style="color:#fbc02d">★★</sup>                                                     |
+| 📉 Others                     | (no methods with 0-star priority here)                                                                        |
 
 ---
 
