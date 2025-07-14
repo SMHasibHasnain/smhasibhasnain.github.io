@@ -1,5 +1,5 @@
 ---
-title: "JavaScript Array Methods Cheat Sheet"
+title: "📚 JavaScript Array Methods Cheat Sheet"
 date: 2025-07-13
 categories: [JavaScript, Cheat Sheet]
 tags: [Array, JavaScript, Methods, Reference, JS]
