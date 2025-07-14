@@ -35,5 +35,5 @@ I'm **S M Hasib Hasnain**, a software engineering student passionate about build
 > This blog is a reflection of my growth, learnings, and experiments.  
 > Thanks for stopping by! 🌱
 
-📫 Contact me: `smhasibhasnain@gmail.com`
+📫 Contact me: `hasibhasnain01@gmail.com`
 
