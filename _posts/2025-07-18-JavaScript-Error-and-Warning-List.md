@@ -8,7 +8,9 @@ toc: true
 comments: false
 ---
 
-List of JavaScript errors and warnings with descriptions, code examples, and MDN links.
+When I just started my coding journey, errors felt like my greatest enemy. I was always intimidated by them — every red line on the screen felt like a personal failure, and I often wondered if I was cut out for programming at all. But over time, I realized that errors aren’t enemies; they are my greatest teachers. Every mistake revealed a new lesson, every bug pushed me to think deeper, and every warning guided me toward writing better code. 
+
+To learn from errors, you first have to recognize them. This cheatsheet will help you do exactly that.
 
 ---
 
