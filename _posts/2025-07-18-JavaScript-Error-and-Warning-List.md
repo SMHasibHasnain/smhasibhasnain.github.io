@@ -8,7 +8,7 @@ toc: true
 comments: false
 ---
 
-Comprehensive list of JavaScript errors and warnings with descriptions, code examples, and MDN links.
+List of JavaScript errors and warnings with descriptions, code examples, and MDN links.
 
 ---
 
@@ -133,10 +133,6 @@ Comprehensive list of JavaScript errors and warnings with descriptions, code exa
 | Using `with` statement | `with` is disallowed in strict mode due to its confusing scoping. | `'use strict'; with(obj) {}` |
 | Non-strict sloppy declarations | Variables declared without `var`, `let`, or `const` in non-strict mode. | `x = 1;` |
 | Using deprecated `__proto__` | Directly accessing or assigning `__proto__` is discouraged. | `obj.__proto__ = null;` |
-
----
-
-✅ This file contains **all** known common JavaScript errors and warnings, with clear descriptions, examples, and MDN references for your easy copy-paste and study.
 
 ---
 
