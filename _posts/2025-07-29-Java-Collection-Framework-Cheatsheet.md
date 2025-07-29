@@ -12,10 +12,6 @@ comments: false
 
 ## Java Collection Framework – Overview Table
 
-<span style="color:silver; font-style: italic;">
-🔴Array – 🟢Linked List – 🟣Tree – 🔵Hash Table – 🟡Binary Heap –  
-🔐Thread-safe – 👴Legacy
-</span>
 
 | Class                      | Interface(s) Implemented           | Also Implements / Extends                     | Ordering                | Duplicates | Null Allowed                     | Thread Safe     | Fail‑Fast Iterator         | Performance (Avg)       | Legacy/Modern     | Typical Use Case                            |
 |---------------------------|-------------------------------------|------------------------------------------------|-------------------------|------------|----------------------------------|------------------|-----------------------------|--------------------------|-------------------|---------------------------------------------|
@@ -48,6 +44,11 @@ comments: false
 | `EnumMap` 🔴                | `Map`                               | `Serializable`, `Cloneable`                     | Enum key order           | ❌ No       | ❌ null keys                     | ❌ No           | ✅ Yes                      | O(1) operations            | Modern            | Efficient enum-key-based map               |
 | `Hashtable` 🔵👴🔐              | `Map`                               | `Cloneable`, `Serializable`                     | Unordered               | ❌ No       | ❌ No                            | ✅ Yes          | ✅ Yes                      | O(1) synchronized         | Legacy            | Legacy thread-safe map                      |
 | `Dictionary` 👴 (abstract)   | none (abstract legacy)             | —                                               | Unordered               | ❌ No       | ❌ No                            | ❌ No           | —                            | Varies                   | Legacy            | Pre‐`Map` abstract key/value class          |
+
+<div style="text-align: center"> <span style="color:silver; font-style: italic; font-size: 14px;">
+🔴Array – 🟢Linked List – 🟣Tree – 🔵Hash Table – 🟡Binary Heap –  
+🔐Thread-safe – 👴Legacy
+</span></div>
 
 ---
 
