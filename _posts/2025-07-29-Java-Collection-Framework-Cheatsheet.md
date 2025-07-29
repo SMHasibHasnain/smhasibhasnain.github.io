@@ -10,6 +10,9 @@ comments: false
 
 ## Java Collection Framework – Overview Table
 
+![Alt Text](/assets/img/collection.png)
+
+
 | <abbr title="The main Collection interface category such as List, Set, Queue, or Map">Interface</abbr> | <abbr title="The concrete Java class implementing the interface">Implementation</abbr> | <abbr title="Other Java interfaces this class also implements, showing class hierarchy and additional capabilities">Also Implements</abbr> | <abbr title="Order in which elements are stored or retrieved, e.g., insertion order, sorted order, or none">Ordering</abbr> | <abbr title="Indicates if duplicate elements (or keys for Map) are allowed">Duplicates</abbr> | <abbr title="Specifies if null elements or null keys/values are permitted">Null Allowed</abbr> | <abbr title="Whether this implementation is safe for use by multiple threads concurrently">Thread Safe</abbr> | <abbr title="If true, iterators throw ConcurrentModificationException if collection is structurally modified during iteration">Fail-Fast Iterator</abbr> | <abbr title="Average time complexity of common operations like add, get, and remove (Big-O notation)">Performance (avg)</abbr> | <abbr title="Indicates whether the implementation is considered legacy (older) or modern (recommended)">Legacy / Modern</abbr> | <abbr title="Typical use cases or scenarios where this implementation is best suited">Typical Use Case</abbr> |
 |---------------|--------------------|----------------------|--------------|----------------|------------------|------------------|-------------------------|------------------------|----------------------|------------------------|
 | `List`        | `ArrayList`        | `RandomAccess`, `Cloneable`, `Serializable` | Insertion | ✅ Allows duplicates         | ✅ Allows null (one or more)  | ❌ Not thread safe           | ✅ Yes               | `O(1)` get, `O(n)` remove | Modern               | Fast random access, dynamic array |
