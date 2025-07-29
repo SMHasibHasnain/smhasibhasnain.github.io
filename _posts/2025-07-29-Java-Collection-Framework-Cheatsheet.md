@@ -8,9 +8,14 @@ toc: true
 comments: false
 ---
 
+![Alt Text](/assets/img/collection.png)
+
 ## Java Collection Framework – Overview Table
 
-![Alt Text](/assets/img/collection.png)
+<span style="color:silver; font-style: italic;">
+🔴Array – 🟢Linked List – 🟣Tree – 🔵Hash Table – 🟡Binary Heap –  
+🔐Thread-safe – 👴Legacy
+</span>
 
 | Class                      | Interface(s) Implemented           | Also Implements / Extends                     | Ordering                | Duplicates | Null Allowed                     | Thread Safe     | Fail‑Fast Iterator         | Performance (Avg)       | Legacy/Modern     | Typical Use Case                            |
 |---------------------------|-------------------------------------|------------------------------------------------|-------------------------|------------|----------------------------------|------------------|-----------------------------|--------------------------|-------------------|---------------------------------------------|
