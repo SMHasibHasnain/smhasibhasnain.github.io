@@ -1,5 +1,5 @@
 ---
-title: "🍵 Java Collection Framework"
+title: "🍵 Core Collection Interfaces Cheatsheet: Foundations of Java Collections Framework"
 date: 2025-07-29
 categories: [Java, Cheat Sheet]
 tags: [JavaScript, Collection Framework, Reference]
