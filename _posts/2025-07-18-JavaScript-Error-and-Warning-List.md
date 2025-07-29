@@ -16,6 +16,7 @@ To learn from errors, you first have to recognize them. This cheatsheet will hel
 
 ## JavaScript Errors
 
+
 | Error | Description | Example |
 |-------|-------------|---------|
 | [AggregateError: No Promise in Promise.any was resolved](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError) | All promises in `Promise.any()` were rejected, so no promise resolved. | `Promise.any([Promise.reject("fail")])` |
