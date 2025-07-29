@@ -258,7 +258,42 @@ comments: false
 
 ---
 
+### BlockingQueue<E> Interface
 
+| Method Name         | Arguments                                                                                           | Return Type | Description                                                                                          | Example                                                         |
+|---------------------|-----------------------------------------------------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| `put`               | `E e` <span style="color:silver; font-style: italic;">(required)</span>                             | `void`      | Inserts the element, waiting if necessary for space to become available                             | `queue.put(e);`                                                |
+| `take`              | _none_                                                                                              | `E`         | Retrieves and removes the head, waiting if necessary until an element becomes available             | `E e = queue.take();`                                          |
+| `offer`             | `E e`, `long timeout`, `TimeUnit unit` <span style="color:silver; font-style: italic;">(required)</span> | `boolean`   | Inserts the element, waiting up to the timeout if necessary for space                               | `boolean success = queue.offer(e, 1, TimeUnit.SECONDS);`       |
+| `poll`              | `long timeout`, `TimeUnit unit` <span style="color:silver; font-style: italic;">(required)</span>   | `E`         | Retrieves and removes the head, waiting up to the timeout if necessary                              | `E e = queue.poll(1, TimeUnit.SECONDS);`                       |
+| `remainingCapacity` | _none_                                                                                              | `int`       | Returns the number of additional elements the queue can ideally accept                              | `int cap = queue.remainingCapacity();`                         |
+| `drainTo`           | `Collection<? super E> c` <span style="color:silver; font-style: italic;">(required)</span>         | `int`       | Removes all available elements and adds them to the given collection                                | `int drained = queue.drainTo(list);`                           |
+| `drainTo`           | `Collection<? super E> c`, `int maxElements` <span style="color:silver; font-style: italic;">(required)</span> | `int`       | Removes up to maxElements and adds them to the given collection                                     | `int drained = queue.drainTo(list, 10);`                       |
+
+---
+
+### TransferQueue<E> Interface
+
+| Method Name       | Arguments                                                                                         | Return Type | Description                                                                                      | Example                                                              |
+|-------------------|---------------------------------------------------------------------------------------------------|-------------|--------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| `transfer`        | `E e` <span style="color:silver; font-style: italic;">(required)</span>                           | `void`      | Inserts the element and waits until it is received by a consumer                                | `queue.transfer(e);`                                                |
+| `tryTransfer`     | `E e` <span style="color:silver; font-style: italic;">(required)</span>                           | `boolean`   | Attempts to transfer the element immediately, returns `false` if no consumer is waiting         | `boolean success = queue.tryTransfer(e);`                          |
+| `tryTransfer`     | `E e`, `long timeout`, `TimeUnit unit` <span style="color:silver; font-style: italic;">(required)</span> | `boolean`   | Waits up to timeout for a consumer to receive the element; returns `false` if timed out         | `boolean success = queue.tryTransfer(e, 1, TimeUnit.SECONDS);`     |
+| `hasWaitingConsumer` | _none_                                                                                        | `boolean`   | Returns `true` if any consumers are waiting to receive elements                                 | `boolean waiting = queue.hasWaitingConsumer();`                    |
+| `getWaitingConsumerCount` | _none_                                                                                   | `int`       | Returns an estimate of the number of consumers waiting to receive elements                      | `int count = queue.getWaitingConsumerCount();`                     |
+
+---
+
+### ConcurrentNavigableMap<K,V> Interface
+
+| Method Name         | Arguments                                                                 | Return Type                        | Description                                                                                      | Example                                                                |
+|---------------------|---------------------------------------------------------------------------|------------------------------------|--------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| `subMap`            | `K fromKey`, `boolean fromInclusive`, `K toKey`, `boolean toInclusive`    | `ConcurrentNavigableMap<K,V>`      | Returns a view of the portion of this map whose keys range from `fromKey` to `toKey`            | `ConcurrentNavigableMap<K,V> view = map.subMap(k1, true, k2, false);` |
+| `headMap`           | `K toKey`, `boolean inclusive`                                            | `ConcurrentNavigableMap<K,V>`      | Returns a view of the portion of this map whose keys are less than (or equal if inclusive)      | `ConcurrentNavigableMap<K,V> head = map.headMap(k, true);`            |
+| `tailMap`           | `K fromKey`, `boolean inclusive`                                          | `ConcurrentNavigableMap<K,V>`      | Returns a view of the portion of this map whose keys are greater than (or equal if inclusive)   | `ConcurrentNavigableMap<K,V> tail = map.tailMap(k, false);`           |
+| `descendingMap`     | _none_                                                                    | `ConcurrentNavigableMap<K,V>`      | Returns a reverse-order view of the map                                                         | `ConcurrentNavigableMap<K,V> rev = map.descendingMap();`              |
+
+---
 
 ### Argument Types Description
 
@@ -318,3 +353,33 @@ comments: false
 
 ➡️ No arguments:  
   <i>Methods with no parameters typically perform queries, clear, or return iterators over the whole collection.</i>
+
+---
+
+## Marker & Utility Interfaces
+
+### Marker & Utility Interfaces in Java – In-Depth Comparison
+
+| Interface        | Package         | Type               | Purpose                                                                                   | Declared Methods     | Common Implementations           | Key Notes                                                                                                 |
+|------------------|------------------|--------------------|-------------------------------------------------------------------------------------------|-----------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------|
+| `RandomAccess`   | `java.util`       | Marker Interface   | Indicates that a `List` implementation supports fast random access (e.g., O(1) get/index) | ❌ None               | `ArrayList`, `Vector`            | Used by algorithms to decide if index-based traversal is efficient; not used by `LinkedList`             |
+| `Cloneable`      | `java.lang`       | Marker Interface   | Signals that `.clone()` method can be called safely; enables field-by-field memory copy   | ❌ None               | `ArrayList`, `HashMap`, `Date`   | Must override `clone()` manually from `Object`; deep vs shallow copy must be handled explicitly           |
+| `Serializable`   | `java.io`         | Marker Interface   | Marks a class as eligible for Java Serialization – converting object state to a byte stream | ❌ None               | `ArrayList`, `HashMap`, `String` | Used in I/O, RMI, caching; fields not marked `transient` will be persisted                               |
+| `Externalizable` | `java.io`         | Functional Interface | Like `Serializable`, but gives full control over what/how to serialize/deserialize        | ✅ `writeExternal`, `readExternal` | Rarely used directly             | Must define a public no-arg constructor; improves performance & control                                   |
+| `Comparable<T>`  | `java.lang`       | Generic Interface  | Enables natural ordering of objects (e.g., alphabetic or numeric sorting) via `compareTo()` | ✅ `compareTo(T o)`   | `String`, `Integer`, `Date`      | Needed for `TreeSet`, `TreeMap`; should be consistent with `equals()`                                     |
+| `Comparator<T>`  | `java.util`       | Generic Interface  | Enables external/custom ordering logic without modifying the class                         | ✅ `compare(T o1, T o2)` | Used with `Collections.sort()`   | Can create multiple sort orders; supports chaining with `thenComparing()` in Java 8+                      |
+
+---
+
+### Summary by Behavior
+
+| Interface        | Is Marker? | Serialization | Cloning | Sorting | Access Optimization | Control Level | Usage Context                     |
+|------------------|------------|---------------|---------|---------|----------------------|----------------|----------------------------------|
+| `RandomAccess`   | ✅         | ❌            | ❌      | ❌      | ✅ (O(1) access hint) | 🚫 No control   | Algorithm optimization hints     |
+| `Cloneable`      | ✅         | ❌            | ✅      | ❌      | ❌                   | ⚠️ Partial control | Manual clone implementation needed |
+| `Serializable`   | ✅         | ✅            | ❌      | ❌      | ❌                   | 🚫 No control   | Auto save/load over stream       |
+| `Externalizable` | ❌         | ✅ (manual)   | ❌      | ❌      | ❌                   | ✅ Full control | Advanced I/O customization        |
+| `Comparable`     | ❌         | ❌            | ❌      | ✅      | ❌                   | ✅ Full control | Natural sorting within class     |
+| `Comparator`     | ❌         | ❌            | ❌      | ✅      | ❌                   | ✅ Full control | External or lambda-based sorting |
+
+---
