@@ -83,47 +83,100 @@ comments: false
 
 ---
 
-### List<E> Interface
+### `List<E>` Interface – Full Cheatsheet
 
-| Method Name       | Arguments                                                    | Return Type     | Description                                  | Example                      |
-|-------------------|--------------------------------------------------------------|-----------------|----------------------------------------------|------------------------------|
-| `add`             | `_int index_`, `_E element_` <span style="color:silver; font-style: italic;">(required)</span> | `void`          | Inserts element at specified position         | `list.add(1, "item");`       |
-| `add`             | `_E element_` <span style="color:silver; font-style: italic;">(required)</span>               | `boolean`       | Adds element to end of list                    | `list.add("item");`          |
-| `addAll`          | `_int index_`, `_Collection<? extends E> c_` <span style="color:silver; font-style: italic;">(required)</span> | `boolean`       | Inserts all elements at specified position    | `list.addAll(1, collection);`|
-| `addAll`          | `_Collection<? extends E> c_` <span style="color:silver; font-style: italic;">(required)</span> | `boolean`       | Adds all elements to end of list               | `list.addAll(collection);`   |
-| `clear`           |                                                              | `void`          | Removes all elements                           | `list.clear();`              |
-| `contains`        | `_Object o_` <span style="color:silver; font-style: italic;">(required)</span>                  | `boolean`       | Checks if element is present                   | `list.contains("item");`     |
-| `containsAll`     | `_Collection<?> c_` <span style="color:silver; font-style: italic;">(required)</span>           | `boolean`       | Checks if all elements are present             | `list.containsAll(collection);`|
-| `equals`          | `_Object o_` <span style="color:silver; font-style: italic;">(required)</span>                  | `boolean`       | Compares equality                              | `list.equals(otherList);`    |
-| `get`             | `_int index_` <span style="color:silver; font-style: italic;">(required)</span>                  | `E`             | Returns element at position                     | `E element = list.get(1);`   |
-| `indexOf`         | `_Object o_` <span style="color:silver; font-style: italic;">(required)</span>                  | `int`           | Returns index of first occurrence              | `int i = list.indexOf("item");`|
-| `isEmpty`         |                                                              | `boolean`       | Checks if list is empty                         | `list.isEmpty();`            |
-| `iterator`        |                                                              | `Iterator<E>`   | Returns iterator                               | `Iterator<E> it = list.iterator();`|
-| `lastIndexOf`     | `_Object o_` <span style="color:silver; font-style: italic;">(required)</span>                  | `int`           | Returns index of last occurrence               | `int i = list.lastIndexOf("item");`|
-| `listIterator`    |                                                              | `ListIterator<E>`| Returns list iterator                           | `ListIterator<E> it = list.listIterator();`|
-| `listIterator`    | `_int index_` <span style="color:silver; font-style: italic;">(required)</span>                  | `ListIterator<E>`| Returns list iterator starting at index        | `ListIterator<E> it = list.listIterator(1);`|
-| `remove`          | `_int index_` <span style="color:silver; font-style: italic;">(required)</span>                  | `E`             | Removes element at index                        | `E removed = list.remove(1);`|
-| `remove`          | `_Object o_` <span style="color:silver; font-style: italic;">(required)</span>                  | `boolean`       | Removes first occurrence of element            | `list.remove("item");`       |
-| `removeAll`       | `_Collection<?> c_` <span style="color:silver; font-style: italic;">(required)</span>           | `boolean`       | Removes all matching elements                   | `list.removeAll(collection);`|
-| `retainAll`       | `_Collection<?> c_` <span style="color:silver; font-style: italic;">(required)</span>           | `boolean`       | Retains only elements present in collection    | `list.retainAll(collection);`|
-| `set`             | `_int index_`, `_E element_` <span style="color:silver; font-style: italic;">(required)</span> | `E`             | Replaces element at index                       | `list.set(1, "newItem");`    |
-| `size`            |                                                              | `int`           | Returns size of list                            | `int size = list.size();`    |
-| `subList`         | `_int fromIndex_`, `_int toIndex_` <span style="color:silver; font-style: italic;">(required)</span> | `List<E>`       | Returns sublist view                            | `List<E> sub = list.subList(1, 3);` |
-| `toArray`         |                                                              | `Object[]`      | Returns array of elements                       | `Object[] arr = list.toArray();` |
-| `toArray`         | `_T[] a_` <span style="color:silver; font-style: italic;">(required)</span>                     | `<T[]>`         | Returns array in provided array type            | `String[] arr = list.toArray(new String[0]);` |
+| Method Name                                                                 | Arguments                          | Return Type     | Description                                  | Avg. Time ⏱ | Java Version | Example                      |
+|-----------------------------------------------------------------------------|------------------------------------|-----------------|----------------------------------------------|-------------|--------------|------------------------------|
+| [`add`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#add(int,E))<sup style="color:#d32f2f">★★★</sup> | `int index, E element` (required)  | `void`          | Inserts element at specified position         | O(n)        | 1.2          | `list.add(1, "item");`       |
+| [`add`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#add(E))<sup style="color:#d32f2f">★★★</sup> | `E element` (required)             | `boolean`       | Adds element to end of list                   | O(1) amort. | 1.2          | `list.add("item");`          |
+| [`addAll`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#addAll(int,java.util.Collection))<sup style="color:#fbc02d">★★</sup> | `int index, Collection<? extends E> c` | `boolean`   | Inserts all elements at specified position    | O(n + m)    | 1.2          | `list.addAll(1, collection);`|
+| [`addAll`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#addAll(java.util.Collection))<sup style="color:#d32f2f">★★★</sup> | `Collection<? extends E> c`        | `boolean`       | Adds all elements to end of list              | O(m)        | 1.2          | `list.addAll(collection);`   |
+| [`clear`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#clear())<sup style="color:#d32f2f">★★★</sup> |                                    | `void`          | Removes all elements                          | O(n)        | 1.2          | `list.clear();`              |
+| [`contains`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#contains(java.lang.Object))<sup style="color:#d32f2f">★★★</sup> | `Object o` (required)              | `boolean`       | Checks if element is present                  | O(n)        | 1.2          | `list.contains("item");`     |
+| [`containsAll`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#containsAll(java.util.Collection))<sup style="color:#fbc02d">★★</sup> | `Collection<?> c` (required)       | `boolean`       | Checks if all elements are present            | O(n×m)      | 1.2          | `list.containsAll(collection);`|
+| [`equals`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#equals(java.lang.Object))<sup style="color:#fbc02d">★★</sup> | `Object o` (required)              | `boolean`       | Compares equality                             | O(n)        | 1.2          | `list.equals(otherList);`    |
+| [`get`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#get(int))<sup style="color:#d32f2f">★★★</sup> | `int index` (required)             | `E`             | Returns element at position                   | O(1)        | 1.2          | `E element = list.get(1);`   |
+| [`indexOf`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#indexOf(java.lang.Object))<sup style="color:#d32f2f">★★★</sup> | `Object o` (required)              | `int`           | Returns index of first occurrence             | O(n)        | 1.2          | `int i = list.indexOf("item");`|
+| [`isEmpty`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#isEmpty())<sup style="color:#d32f2f">★★★</sup> |                                    | `boolean`       | Checks if list is empty                       | O(1)        | 1.2          | `list.isEmpty();`            |
+| [`iterator`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#iterator())<sup style="color:#fbc02d">★★</sup> |                                    | `Iterator<E>`   | Returns iterator                              | O(1)        | 1.2          | `Iterator<E> it = list.iterator();`|
+| [`lastIndexOf`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#lastIndexOf(java.lang.Object))<sup style="color:#fbc02d">★★</sup> | `Object o` (required)              | `int`           | Returns index of last occurrence              | O(n)        | 1.2          | `int i = list.lastIndexOf("item");`|
+| [`listIterator`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#listIterator())<sup style="color:#fbc02d">★★</sup> |                                    | `ListIterator<E>`| Returns list iterator                         | O(1)        | 1.2          | `ListIterator<E> it = list.listIterator();`|
+| [`listIterator`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#listIterator(int))<sup style="color:#fbc02d">★★</sup> | `int index` (required)             | `ListIterator<E>`| Returns list iterator starting at index       | O(1)        | 1.2          | `ListIterator<E> it = list.listIterator(1);`|
+| [`remove`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#remove(int))<sup style="color:#d32f2f">★★★</sup> | `int index` (required)             | `E`             | Removes element at index                      | O(n)        | 1.2          | `E removed = list.remove(1);`|
+| [`remove`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#remove(java.lang.Object))<sup style="color:#d32f2f">★★★</sup> | `Object o` (required)              | `boolean`       | Removes first occurrence of element           | O(n)        | 1.2          | `list.remove("item");`       |
+| [`removeAll`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#removeAll(java.util.Collection))<sup style="color:#fbc02d">★★</sup> | `Collection<?> c` (required)       | `boolean`       | Removes all matching elements                 | O(n×m)      | 1.2          | `list.removeAll(collection);`|
+| [`retainAll`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#retainAll(java.util.Collection))<sup style="color:#fbc02d">★★</sup> | `Collection<?> c` (required)       | `boolean`       | Retains only elements present in collection   | O(n×m)      | 1.2          | `list.retainAll(collection);`|
+| [`set`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#set(int,E))<sup style="color:#d32f2f">★★★</sup> | `int index, E element` (required)  | `E`             | Replaces element at index                     | O(1)        | 1.2          | `list.set(1, "newItem");`    |
+| [`size`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#size())<sup style="color:#d32f2f">★★★</sup> |                                    | `int`           | Returns size of list                          | O(1)        | 1.2          | `int size = list.size();`    |
+| [`subList`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#subList(int,int))<sup style="color:#fbc02d">★★</sup> | `int fromIndex, int toIndex` (required)| `List<E>`   | Returns sublist view                          | O(1)¹       | 1.2          | `List<E> sub = list.subList(1, 3);`|
+| [`toArray`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#toArray())<sup style="color:#d32f2f">★★★</sup> |                                    | `Object[]`      | Returns array of elements                     | O(n)        | 1.2          | `Object[] arr = list.toArray();`|
+| [`toArray`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#toArray(T[]))<sup style="color:#d32f2f">★★★</sup> | `T[] a` (required)                 | `<T[]>`         | Returns array in provided array type          | O(n)        | 1.2          | `String[] arr = list.toArray(new String[0]);`|
+
 
 ---
 
-### Queue<E> Interface
+### 🏗️ Static Methods in `List` Interface
 
-| Method Name       | Arguments                                                    | Return Type       | Description                                  | Example                       |
-|-------------------|--------------------------------------------------------------|-------------------|----------------------------------------------|-------------------------------|
-| `add`             | `_E e_` <span style="color:silver; font-style: italic;">(required)</span>                   | `boolean`         | Inserts element or throws exception          | `queue.add("item");`           |
-| `offer`           | `_E e_` <span style="color:silver; font-style: italic;">(required)</span>                   | `boolean`         | Inserts element or returns false if full     | `queue.offer("item");`         |
-| `poll`            |                                                              | `E`               | Retrieves and removes head, or null if empty| `E e = queue.poll();`           |
-| `remove`          |                                                              | `E`               | Retrieves and removes head, throws if empty | `E e = queue.remove();`         |
-| `peek`            |                                                              | `E`               | Retrieves head or null if empty               | `E e = queue.peek();`           |
-| `element`         |                                                              | `E`               | Retrieves head or throws if empty             | `E e = queue.element();`        |
+| Method Name                                                                 | Arguments                          | Return Type | Description                         | Avg. Time ⏱ | Java Version | Example                |
+|-----------------------------------------------------------------------------|------------------------------------|-------------|-------------------------------------|-------------|--------------|------------------------|
+| [`of`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#of(E...))<sup style="color:#d32f2f">★★★</sup> | `E... elements` (required)         | `List<E>`   | Immutable list of elements          | O(n)        | 9+           | `List.of("a", "b")`    |
+| [`copyOf`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html#copyOf(java.util.Collection))<sup style="color:#fbc02d">★★</sup> | `Collection<? extends E> c` (required)| `List<E>` | Immutable copy of collection        | O(n)        | 9+           | `List.copyOf(myList)`  |
+
+
+---
+
+### 🛠️ Utility Methods from `Collections` and `Arrays`
+
+| Method Name                                                                 | Arguments                          | Return Type | Description                            | Avg. Time ⏱ | Java Version | Example                                    |
+|-----------------------------------------------------------------------------|------------------------------------|-------------|----------------------------------------|-------------|--------------|--------------------------------------------|
+| [`Collections.unmodifiableList`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collections.html#unmodifiableList(java.util.List))<sup style="color:#fbc02d">★★</sup> | `List<? extends T> list` (required) | `List<T>`   | Read-only wrapper over original list   | O(1)        | 1.2          | `Collections.unmodifiableList(myList)`    |
+| [`Collections.singletonList`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collections.html#singletonList(T))<sup style="color:#fbc02d">★★</sup> | `T item` (required)                | `List<T>`   | Immutable list with a single element   | O(1)        | 1.2          | `Collections.singletonList("a")`          |
+| [`Arrays.asList`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Arrays.html#asList(T...))<sup style="color:#d32f2f">★★★</sup> | `T... a` (required)                | `List<T>`   | Fixed-size list backed by an array     | O(1)        | 1.2          | `Arrays.asList("x", "y")`                  |
+
+
+---
+
+<!-- ### Legend:
+#### Priority Markers (Usage Frequency):
+<sup style="color:#d32f2f">★★★</sup> Very Important (Used daily)  
+<sup style="color:#fbc02d">★★</sup> Important (Used weekly)  
+<sup style="color:#388e3c">★</sup> Less Important (Used monthly)   -->
+
+<!-- #### Time Complexity:
+- **O(1)** - Constant time (fastest)
+- **O(1) amort.** - Amortized constant time
+- **O(n)** - Linear time
+- **O(n×m)** - Quadratic time (slowest) -->
+
+
+### `Queue<E>` Interface – Full Cheatsheet
+
+| Method Name                                                                 | Arguments                          | Return Type     | Description                                  | Avg. Time ⏱ | Java Version | Example                      |
+|-----------------------------------------------------------------------------|------------------------------------|-----------------|----------------------------------------------|-------------|--------------|------------------------------|
+| [`add`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html#add(E))<sup style="color:#d32f2f">★★★</sup> | `E e` (required)                   | `boolean`       | Inserts element or throws exception          | O(1)        | 1.5          | `queue.add("item");`         |
+| [`offer`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html#offer(E))<sup style="color:#d32f2f">★★★</sup> | `E e` (required)                   | `boolean`       | Inserts element or returns false if full     | O(1)        | 1.5          | `queue.offer("item");`       |
+| [`poll`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html#poll())<sup style="color:#d32f2f">★★★</sup> |                                    | `E`             | Retrieves and removes head, or null if empty | O(1)        | 1.5          | `E e = queue.poll();`        |
+| [`remove`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html#remove())<sup style="color:#fbc02d">★★</sup> |                                    | `E`             | Retrieves and removes head, throws if empty | O(1)        | 1.5          | `E e = queue.remove();`      |
+| [`peek`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html#peek())<sup style="color:#d32f2f">★★★</sup> |                                    | `E`             | Retrieves head or null if empty               | O(1)        | 1.5          | `E e = queue.peek();`        |
+| [`element`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html#element())<sup style="color:#fbc02d">★★</sup> |                                    | `E`             | Retrieves head or throws if empty             | O(1)        | 1.5          | `E e = queue.element();`     |
+
+---
+
+### 🏗️ Static Methods in `Collections` (Queue Utilities)
+
+| Method Name                                                                 | Arguments                          | Return Type     | Description                                  | Avg. Time ⏱ | Java Version | Example                      |
+|-----------------------------------------------------------------------------|------------------------------------|-----------------|----------------------------------------------|-------------|--------------|------------------------------|
+| [`Collections.asLifoQueue`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collections.html#asLifoQueue(java.util.Deque))<sup style="color:#388e3c">★</sup> | `Deque<T> deque` (required)         | `Queue<T>`      | Returns a LIFO view of a deque               | O(1)        | 1.6          | `Queue<T> lifo = Collections.asLifoQueue(deque);` |
+| [`Collections.unmodifiableQueue`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collections.html#unmodifiableQueue(java.util.Queue))<sup style="color:#388e3c">★</sup> | `Queue<? extends T> queue` (required) | `Queue<T>`   | Returns an unmodifiable view of a queue      | O(1)        | 1.5          | `Queue<T> unmod = Collections.unmodifiableQueue(queue);` |
+
+---
+
+### 🛠️ Static Factory Methods (Java 9+)
+
+| Method Name                                                                 | Arguments                          | Return Type     | Description                                  | Avg. Time ⏱ | Java Version | Example                      |
+|-----------------------------------------------------------------------------|------------------------------------|-----------------|----------------------------------------------|-------------|--------------|------------------------------|
+| [`Queue.of`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html#of(E...))<sup style="color:#d32f2f">★★★</sup> | `E... elements` (required)         | `Queue<E>`      | Creates an unmodifiable queue with elements   | O(n)        | 9+           | `Queue<String> q = Queue.of("A", "B");` |
+| [`Queue.copyOf`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Queue.html#copyOf(java.util.Collection))<sup style="color:#fbc02d">★★</sup> | `Collection<? extends E> coll` (required) | `Queue<E>` | Creates an unmodifiable queue from collection | O(n)        | 9+           | `Queue<String> q = Queue.copyOf(list);` |
 
 ---
 
